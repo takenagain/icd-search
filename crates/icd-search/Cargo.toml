@@ -3,7 +3,6 @@ name = "icd-search"
 version = "0.1.0"
 edition = "2024"
 description = "Client-side ICD-11 MMS search engine (BM25F, code match, typo tolerance) for WebAssembly"
-license = "MIT"
 publish = false
 
 [lib]

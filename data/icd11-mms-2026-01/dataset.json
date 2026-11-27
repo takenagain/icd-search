@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "linearization": "mms",
+  "releaseId": "2026-01",
+  "releaseDate": "2026-01-17",
+  "language": "en",
+  "source": "WHO ICD-API (ICD-11 MMS), http://id.who.int/icd/release/11/2026-01/mms",
+  "entities": 37211,
+  "orphans": 0,
+  "unresolvedLinks": {
+    "exclusion": 30,
+    "coded_elsewhere": 0,
+    "see_also": 0,
+    "scale": 0
+  },
+  "keyCensus": {
+    "@context": 37211,
+    "@id": 37211,
+    "blockId": 788,
+    "browserUrl": 37211,
+    "child": 5874,
+    "classKind": 37211,
+    "code": 37211,
+    "codeRange": 788,
+    "codingNote": 881,
+    "definition": 8128,
+    "exclusion": 2549,
+    "foundationChildElsewhere": 1822,
+    "fullySpecifiedName": 89,
+    "inclusion": 1582,
+    "indexTerm": 33458,
+    "longDefinition": 682,
+    "parent": 37211,
+    "postcoordinationScale": 10415,
+    "relatedEntitiesInMaternalChapter": 3390,
+    "relatedEntitiesInPerinatalChapter": 3052,
+    "relatedImpairment": 6,
+    "source": 31837,
+    "title": 37211
+  },
+  "unknownKeys": [],
+  "shards": [
+    {
+      "name": "shard-000.ndjson",
+      "lines": 2542,
+      "bytes": 2500529,
+      "sha256": "dae272e92db03c9862d4faa719b3a7d3d8a0308722d1db17260701fdced92837"
+    },
+    {
+      "name": "shard-001.ndjson",
+      "lines": 2692,
+      "bytes": 2500165,
+      "sha256": "4efa10483543c77e58bab3ed4177f1818d68aebe5f151111c6c4d8857170993d"
+    },
+    {
+      "name": "shard-002.ndjson",
+      "lines": 3761,
+      "bytes": 2500086,
+      "sha256": "aa88b69ecc9773bf873d45104988897f792f9ce4e31b9ea00cd602d152e00120"
+    },
+    {
+      "name": "shard-003.ndjson",
+      "lines": 3553,
+      "bytes": 2501201,
+      "sha256": "5ed4e2575186c2a64250ed03f788c30b763d49b18bc982286092bb5297cb1844"
+    },
+    {
+      "name": "shard-004.ndjson",
+      "lines": 3623,
+      "bytes": 2503459,
+      "sha256": "f68f5f5f914932ccdef2a77a4426d26e1d0f52800f1d36af6b419485aac8c8b8"
+    },
+    {
+      "name": "shard-005.ndjson",
+      "lines": 5959,
+      "bytes": 2500145,
+      "sha256": "e2ceede61ee61c77b53ef820d8720fde310d73441da5f57aa0809c0edd807d9a"
+    },
+    {
+      "name": "shard-006.ndjson",
+      "lines": 12277,
+      "bytes": 2500086,
+      "sha256": "15a5b5a2a00acf9906306cd96a5df5b893cf7446e6bc89f7ff96b9ec3a238ee7"
+    },
+    {
+      "name": "shard-007.ndjson",
+      "lines": 2804,
+      "bytes": 540649,
+      "sha256": "7d13084ead520cb35794e742dc57cbb8160911c48dddc3f139f63da4ca044684"
+    }
+  ]
+}

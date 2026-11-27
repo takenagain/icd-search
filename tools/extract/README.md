@@ -53,4 +53,5 @@ pre-order (chapters contiguous), ~2.5 MB per shard. Text fields are WHO's text v
 Routing key of an entity = `c`, else `bid`, else `id` (the extractor asserts uniqueness).
 The extractor also asserts that the API's `browserUrl` equals
 `https://icd.who.int/browse/<release>/mms/<lang>#<id>`, so the app derives WHO links
-instead of storing them.
+instead of storing them, and that the API's `@id` equals `http://id.who.int/icd/release/11/<release>/mms/<id>`,
+the URI the app derives from the manifest's `uriBase` and the record `id`.

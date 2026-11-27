@@ -65,6 +65,13 @@ export async function aboutView(update: { available: boolean } | null, applyUpda
         'section',
         { class: 'card wide' },
         h('h2', null, 'Licence and attribution'),
+        h(
+          'ul',
+          { class: 'credits' },
+          h('li', null, h('strong', null, 'ICD-11 data'), ': © World Health Organization, ', h('a', { href: 'https://creativecommons.org/licenses/by-nd/3.0/igo/', target: '_blank', rel: 'noopener' }, 'CC BY-ND 3.0 IGO'), '.'),
+          h('li', null, h('strong', null, 'Site source code'), ': © 2026 takenagain, ', h('a', { href: 'https://github.com/takenagain/icd-search/blob/main/LICENSE', target: '_blank', rel: 'noopener' }, 'MIT licence'), '. The MIT licence covers the code only; it does not cover the WHO data.'),
+          h('li', null, h('strong', null, 'Anatomy diagrams'), ': own artwork, ', h('a', { href: 'https://creativecommons.org/publicdomain/zero/1.0/', target: '_blank', rel: 'noopener' }, 'CC0 1.0'), '.'),
+        ),
         h('p', null, 'International Classification of Diseases, Eleventh Revision (ICD-11), World Health Organization (WHO) 2019 ', h('a', { href: 'https://icd.who.int/browse11', target: '_blank', rel: 'noopener' }, 'https://icd.who.int/browse11'), '. Licensed under the Creative Commons Attribution-NoDerivatives 3.0 IGO licence (', h('a', { href: 'https://creativecommons.org/licenses/by-nd/3.0/igo/', target: '_blank', rel: 'noopener' }, 'CC BY-ND 3.0 IGO'), ').'),
         h('p', null, 'WHO text (titles, definitions, inclusions, exclusions, index terms) is displayed verbatim. Each entry carries its code, title and WHO URI (shown on the code page) and links to the official browser. The graph view, the anatomy highlights, the search index and the grouping of results are additions that do not originate from WHO. This site is not affiliated with and not endorsed by WHO. It is not a medical device and does not replace professional coding or clinical judgement.'),
         h('p', null, h('a', { href: 'https://icd.who.int/en/docs/icd11-license.pdf', target: '_blank', rel: 'noopener' }, 'WHO terms of use and licence agreement')),

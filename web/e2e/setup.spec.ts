@@ -131,6 +131,8 @@ test('about page shows the data version and clearing local data restarts setup',
   await expect(page.getByRole('heading', { name: 'Data version' })).toBeVisible();
   await expect(page.locator('.about')).toContainText('2026-01');
   await expect(page.locator('.about')).toContainText('37,211');
+  await expect(page.locator('.about')).toContainText('MIT licence');
+  await expect(page.locator('.about')).toContainText('does not cover the WHO data');
   page.once('dialog', (d) => d.accept());
   await page.getByRole('button', { name: 'Clear local data' }).click();
   await expect(page.getByRole('heading', { name: 'Setting up ICD-11 search' })).toBeVisible({ timeout: 30_000 });

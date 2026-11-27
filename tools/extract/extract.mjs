@@ -209,6 +209,10 @@ function build(entities, root) {
     // The API echoes the browser link; we derive it, so insist they agree.
     const wantUrl = `https://icd.who.int/browse/${RELEASE}/mms/${opt.lang}#${id}`;
     if (e.browserUrl !== wantUrl) throw new Error(`${id}: browserUrl ${e.browserUrl} != ${wantUrl}`);
+    // Same for the entity URI: the manifest's uriBase + '/' + id must be exactly WHO's @id, so the site can
+    // derive it instead of storing it per record (a stored uri field adds about 5.5% to the brotli download).
+    const wantUri = `http://id.who.int/icd/release/11/${RELEASE}/mms/${id}`;
+    if (e['@id'] !== wantUri) throw new Error(`${id}: @id ${e['@id']} != ${wantUri}`);
     const d = text(e.definition);
     if (d) rec.d = d;
     const ld = text(e.longDefinition);

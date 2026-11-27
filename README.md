@@ -69,7 +69,13 @@ itself. Shipping it prebuilt would roughly double the first download to save abo
 **builds the index during setup and stores it in IndexedDB**; later visits load the stored index (≈ 33 ms). The index is
 tied to the dataset id, so a new release rebuilds it.
 
-## Data and licence
+## Licences
 
-The ICD-11 text is © WHO and shown unmodified under CC BY-ND 3.0 IGO; see [docs/LICENSING.md](docs/LICENSING.md) for how
-the site complies and what to watch (name, redistribution, mappings). This site is independent and not endorsed by WHO.
+| | |
+|---|---|
+| Site source code | **MIT**, © 2026 takenagain ([`LICENSE`](LICENSE)) |
+| ICD-11 data (`data/` and everything built from it) | © WHO, shown unmodified under **CC BY-ND 3.0 IGO**. **Not covered by the MIT licence** |
+| Anatomy diagrams | **CC0 1.0** |
+
+[docs/LICENSING.md](docs/LICENSING.md) explains how the site complies with WHO's terms and what to watch (name,
+redistribution, mappings). This site is independent and not endorsed by WHO.

@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 490" role="img">
+<title>Schematic human body</title>
+<desc>Original schematic body diagrams, CC0 1.0. Front surface, back, internal organs and skeleton views.</desc>
+<g class="view" data-view="surface">
+<ellipse cx="110" cy="36" rx="25" ry="31" class="part" data-t="head face skin"/>
+<path d="M100 62 C103.7 57.7 116.3 57.7 120 62 C123.7 66.3 125.7 83.7 122 88 C118.3 92.3 101.7 92.3 98 88 C94.3 83.7 96.3 66.3 100 62Z" class="part" data-t="neck skin"/>
+<ellipse cx="60" cy="98" rx="17" ry="13" class="part" data-t="shoulder skin"/>
+<ellipse cx="160" cy="98" rx="17" ry="13" class="part" data-t="shoulder skin"/>
+<path d="M70 92 C76.3 84.7 96.7 86 110 86 C123.3 86 143.7 84.7 150 92 C156.3 99.3 148.7 118.3 148 130 C147.3 141.7 152.3 156 146 162 C139.7 168 122 166 110 166 C98 166 80.3 168 74 162 C67.7 156 72.7 141.7 72 130 C71.3 118.3 63.7 99.3 70 92Z" class="part" data-t="chest skin"/>
+<path d="M76 164 C81.3 159.3 98.7 168 110 168 C121.3 168 138.7 159.3 144 164 C149.3 168.7 142.7 186.3 142 196 C141.3 205.7 145.3 216.7 140 222 C134.7 227.3 120 228 110 228 C100 228 85.3 227.3 80 222 C74.7 216.7 78.7 205.7 78 196 C77.3 186.3 70.7 168.7 76 164Z" class="part" data-t="abdomen skin"/>
+<path d="M80 224 C86.7 220.3 100 230 110 230 C120 230 133.3 220.3 140 224 C146.7 227.7 150 243 150 252 C150 261 146.7 275 140 278 C133.3 281 120 270 110 270 C100 270 86.7 281 80 278 C73.3 275 70 261 70 252 C70 243 73.3 227.7 80 224Z" class="part" data-t="pelvis skin"/>
+<path d="M44 106 C49 95 65 96.3 68 108 C71 119.7 67 165 62 176 C57 187 41 185.7 38 174 C35 162.3 39 117 44 106Z" class="part" data-t="arm skin"/>
+<path d="M176 106 C171 95 155 96.3 152 108 C149 119.7 153 165 158 176 C163 187 179 185.7 182 174 C185 162.3 181 117 176 106Z" class="part" data-t="arm skin"/>
+<path d="M38 178 C43 168.7 59.3 169.7 62 180 C64.7 190.3 59 230.7 54 240 C49 249.3 34.7 246.3 32 236 C29.3 225.7 33 187.3 38 178Z" class="part" data-t="forearm skin"/>
+<path d="M182 178 C177 168.7 160.7 169.7 158 180 C155.3 190.3 161 230.7 166 240 C171 249.3 185.3 246.3 188 236 C190.7 225.7 187 187.3 182 178Z" class="part" data-t="forearm skin"/>
+<path d="M32 238 C35.7 235 49 236.3 52 242 C55 247.7 52.7 266.3 50 272 C47.3 277.7 39.3 278 36 276 C32.7 274 30.7 266.3 30 260 C29.3 253.7 28.3 241 32 238Z" class="part" data-t="hand skin"/>
+<path d="M188 238 C184.3 235 171 236.3 168 242 C165 247.7 167.3 266.3 170 272 C172.7 277.7 180.7 278 184 276 C187.3 274 189.3 266.3 190 260 C190.7 253.7 191.7 241 188 238Z" class="part" data-t="hand skin"/>
+<path d="M78 272 C82.7 258 103.7 259.3 108 274 C112.3 288.7 108.7 346 104 360 C99.3 374 84.3 372.7 80 358 C75.7 343.3 73.3 286 78 272Z" class="part" data-t="thigh skin"/>
+<path d="M142 272 C137.3 258 116.3 259.3 112 274 C107.7 288.7 111.3 346 116 360 C120.7 374 135.7 372.7 140 358 C144.3 343.3 146.7 286 142 272Z" class="part" data-t="thigh skin"/>
+<ellipse cx="92" cy="368" rx="13" ry="10" class="part" data-t="knee skin"/>
+<ellipse cx="128" cy="368" rx="13" ry="10" class="part" data-t="knee skin"/>
+<path d="M80 378 C83.3 365.7 100.7 365.7 104 378 C107.3 390.3 103.3 439.7 100 452 C96.7 464.3 87.3 464.3 84 452 C80.7 439.7 76.7 390.3 80 378Z" class="part" data-t="leg skin"/>
+<path d="M140 378 C136.7 365.7 119.3 365.7 116 378 C112.7 390.3 116.7 439.7 120 452 C123.3 464.3 132.7 464.3 136 452 C139.3 439.7 143.3 390.3 140 378Z" class="part" data-t="leg skin"/>
+<path d="M80 454 C85 450.7 97.7 451 102 454 C106.3 457 111 468.7 106 472 C101 475.3 76.3 477 72 474 C67.7 471 75 457.3 80 454Z" class="part" data-t="foot skin"/>
+<path d="M140 454 C135 450.7 122.3 451 118 454 C113.7 457 109 468.7 114 472 C119 475.3 143.7 477 148 474 C152.3 471 145 457.3 140 454Z" class="part" data-t="foot skin"/>
+<ellipse cx="99" cy="34" rx="4" ry="2.6" class="feature" data-t="eye face"/>
+<ellipse cx="121" cy="34" rx="4" ry="2.6" class="feature" data-t="eye face"/>
+<ellipse cx="84" cy="40" rx="4" ry="8" class="part" data-t="ear head skin"/>
+<ellipse cx="136" cy="40" rx="4" ry="8" class="part" data-t="ear head skin"/>
+<path d="M110 38 L105 53 L115 53Z" class="feature" data-t="nose face"/>
+<ellipse cx="110" cy="63" rx="8" ry="3" class="feature" data-t="mouth face"/>
+<ellipse cx="90" cy="118" rx="9" ry="9" class="part" data-t="breast chest skin"/>
+<ellipse cx="130" cy="118" rx="9" ry="9" class="part" data-t="breast chest skin"/>
+<ellipse cx="110" cy="190" rx="2" ry="2" class="feature"/>
+</g>
+<g class="view" data-view="back">
+<ellipse cx="110" cy="36" rx="25" ry="31" class="part" data-t="head skin"/>
+<path d="M100 62 C103.7 57.7 116.3 57.7 120 62 C123.7 66.3 125.7 83.7 122 88 C118.3 92.3 101.7 92.3 98 88 C94.3 83.7 96.3 66.3 100 62Z" class="part" data-t="neck skin"/>
+<ellipse cx="60" cy="98" rx="17" ry="13" class="part" data-t="shoulder skin"/>
+<ellipse cx="160" cy="98" rx="17" ry="13" class="part" data-t="shoulder skin"/>
+<path d="M70 92 C76.3 84.7 96.7 86 110 86 C123.3 86 143.7 84.7 150 92 C156.3 99.3 148.7 118.3 148 130 C147.3 141.7 152.3 156 146 162 C139.7 168 122 166 110 166 C98 166 80.3 168 74 162 C67.7 156 72.7 141.7 72 130 C71.3 118.3 63.7 99.3 70 92Z" class="part" data-t="back skin"/>
+<path d="M76 164 C81.3 159.3 98.7 168 110 168 C121.3 168 138.7 159.3 144 164 C149.3 168.7 142.7 186.3 142 196 C141.3 205.7 145.3 216.7 140 222 C134.7 227.3 120 228 110 228 C100 228 85.3 227.3 80 222 C74.7 216.7 78.7 205.7 78 196 C77.3 186.3 70.7 168.7 76 164Z" class="part" data-t="lumbar skin"/>
+<ellipse cx="94" cy="252" rx="24" ry="26" class="part" data-t="buttock skin"/>
+<ellipse cx="126" cy="252" rx="24" ry="26" class="part" data-t="buttock skin"/>
+<path d="M44 106 C49 95 65 96.3 68 108 C71 119.7 67 165 62 176 C57 187 41 185.7 38 174 C35 162.3 39 117 44 106Z" class="part" data-t="arm skin"/>
+<path d="M176 106 C171 95 155 96.3 152 108 C149 119.7 153 165 158 176 C163 187 179 185.7 182 174 C185 162.3 181 117 176 106Z" class="part" data-t="arm skin"/>
+<path d="M38 178 C43 168.7 59.3 169.7 62 180 C64.7 190.3 59 230.7 54 240 C49 249.3 34.7 246.3 32 236 C29.3 225.7 33 187.3 38 178Z" class="part" data-t="forearm skin"/>
+<path d="M182 178 C177 168.7 160.7 169.7 158 180 C155.3 190.3 161 230.7 166 240 C171 249.3 185.3 246.3 188 236 C190.7 225.7 187 187.3 182 178Z" class="part" data-t="forearm skin"/>
+<path d="M32 238 C35.7 235 49 236.3 52 242 C55 247.7 52.7 266.3 50 272 C47.3 277.7 39.3 278 36 276 C32.7 274 30.7 266.3 30 260 C29.3 253.7 28.3 241 32 238Z" class="part" data-t="hand skin"/>
+<path d="M188 238 C184.3 235 171 236.3 168 242 C165 247.7 167.3 266.3 170 272 C172.7 277.7 180.7 278 184 276 C187.3 274 189.3 266.3 190 260 C190.7 253.7 191.7 241 188 238Z" class="part" data-t="hand skin"/>
+<path d="M78 272 C82.7 258 103.7 259.3 108 274 C112.3 288.7 108.7 346 104 360 C99.3 374 84.3 372.7 80 358 C75.7 343.3 73.3 286 78 272Z" class="part" data-t="thigh skin"/>
+<path d="M142 272 C137.3 258 116.3 259.3 112 274 C107.7 288.7 111.3 346 116 360 C120.7 374 135.7 372.7 140 358 C144.3 343.3 146.7 286 142 272Z" class="part" data-t="thigh skin"/>
+<ellipse cx="92" cy="368" rx="13" ry="10" class="part" data-t="knee skin"/>
+<ellipse cx="128" cy="368" rx="13" ry="10" class="part" data-t="knee skin"/>
+<path d="M80 378 C83.3 365.7 100.7 365.7 104 378 C107.3 390.3 103.3 439.7 100 452 C96.7 464.3 87.3 464.3 84 452 C80.7 439.7 76.7 390.3 80 378Z" class="part" data-t="leg skin"/>
+<path d="M140 378 C136.7 365.7 119.3 365.7 116 378 C112.7 390.3 116.7 439.7 120 452 C123.3 464.3 132.7 464.3 136 452 C139.3 439.7 143.3 390.3 140 378Z" class="part" data-t="leg skin"/>
+<path d="M80 454 C85 450.7 97.7 451 102 454 C106.3 457 111 468.7 106 472 C101 475.3 76.3 477 72 474 C67.7 471 75 457.3 80 454Z" class="part" data-t="foot skin"/>
+<path d="M140 454 C135 450.7 122.3 451 118 454 C113.7 457 109 468.7 114 472 C119 475.3 143.7 477 148 474 C152.3 471 145 457.3 140 454Z" class="part" data-t="foot skin"/>
+<path d="M110 64 L110 226" class="ghost"/>
+</g>
+<g class="view" data-view="organs">
+<ellipse cx="110" cy="36" rx="25" ry="31" class="ghost"/>
+<path d="M100 62 C103.7 57.7 116.3 57.7 120 62 C123.7 66.3 125.7 83.7 122 88 C118.3 92.3 101.7 92.3 98 88 C94.3 83.7 96.3 66.3 100 62Z" class="ghost"/>
+<ellipse cx="60" cy="98" rx="17" ry="13" class="ghost"/>
+<ellipse cx="160" cy="98" rx="17" ry="13" class="ghost"/>
+<path d="M70 92 C76.3 84.7 96.7 86 110 86 C123.3 86 143.7 84.7 150 92 C156.3 99.3 148.7 118.3 148 130 C147.3 141.7 152.3 156 146 162 C139.7 168 122 166 110 166 C98 166 80.3 168 74 162 C67.7 156 72.7 141.7 72 130 C71.3 118.3 63.7 99.3 70 92Z" class="ghost"/>
+<path d="M76 164 C81.3 159.3 98.7 168 110 168 C121.3 168 138.7 159.3 144 164 C149.3 168.7 142.7 186.3 142 196 C141.3 205.7 145.3 216.7 140 222 C134.7 227.3 120 228 110 228 C100 228 85.3 227.3 80 222 C74.7 216.7 78.7 205.7 78 196 C77.3 186.3 70.7 168.7 76 164Z" class="ghost"/>
+<path d="M80 224 C86.7 220.3 100 230 110 230 C120 230 133.3 220.3 140 224 C146.7 227.7 150 243 150 252 C150 261 146.7 275 140 278 C133.3 281 120 270 110 270 C100 270 86.7 281 80 278 C73.3 275 70 261 70 252 C70 243 73.3 227.7 80 224Z" class="ghost"/>
+<path d="M44 106 C49 95 65 96.3 68 108 C71 119.7 67 165 62 176 C57 187 41 185.7 38 174 C35 162.3 39 117 44 106Z" class="ghost"/>
+<path d="M176 106 C171 95 155 96.3 152 108 C149 119.7 153 165 158 176 C163 187 179 185.7 182 174 C185 162.3 181 117 176 106Z" class="ghost"/>
+<path d="M38 178 C43 168.7 59.3 169.7 62 180 C64.7 190.3 59 230.7 54 240 C49 249.3 34.7 246.3 32 236 C29.3 225.7 33 187.3 38 178Z" class="ghost"/>
+<path d="M182 178 C177 168.7 160.7 169.7 158 180 C155.3 190.3 161 230.7 166 240 C171 249.3 185.3 246.3 188 236 C190.7 225.7 187 187.3 182 178Z" class="ghost"/>
+<path d="M32 238 C35.7 235 49 236.3 52 242 C55 247.7 52.7 266.3 50 272 C47.3 277.7 39.3 278 36 276 C32.7 274 30.7 266.3 30 260 C29.3 253.7 28.3 241 32 238Z" class="ghost"/>
+<path d="M188 238 C184.3 235 171 236.3 168 242 C165 247.7 167.3 266.3 170 272 C172.7 277.7 180.7 278 184 276 C187.3 274 189.3 266.3 190 260 C190.7 253.7 191.7 241 188 238Z" class="ghost"/>
+<path d="M78 272 C82.7 258 103.7 259.3 108 274 C112.3 288.7 108.7 346 104 360 C99.3 374 84.3 372.7 80 358 C75.7 343.3 73.3 286 78 272Z" class="ghost"/>
+<path d="M142 272 C137.3 258 116.3 259.3 112 274 C107.7 288.7 111.3 346 116 360 C120.7 374 135.7 372.7 140 358 C144.3 343.3 146.7 286 142 272Z" class="ghost"/>
+<ellipse cx="92" cy="368" rx="13" ry="10" class="ghost"/>
+<ellipse cx="128" cy="368" rx="13" ry="10" class="ghost"/>
+<path d="M80 378 C83.3 365.7 100.7 365.7 104 378 C107.3 390.3 103.3 439.7 100 452 C96.7 464.3 87.3 464.3 84 452 C80.7 439.7 76.7 390.3 80 378Z" class="ghost"/>
+<path d="M140 378 C136.7 365.7 119.3 365.7 116 378 C112.7 390.3 116.7 439.7 120 452 C123.3 464.3 132.7 464.3 136 452 C139.3 439.7 143.3 390.3 140 378Z" class="ghost"/>
+<path d="M80 454 C85 450.7 97.7 451 102 454 C106.3 457 111 468.7 106 472 C101 475.3 76.3 477 72 474 C67.7 471 75 457.3 80 454Z" class="ghost"/>
+<path d="M140 454 C135 450.7 122.3 451 118 454 C113.7 457 109 468.7 114 472 C119 475.3 143.7 477 148 474 C152.3 471 145 457.3 140 454Z" class="ghost"/>
+<path d="M92 28 C92.7 23.5 95.3 17.2 100 15 C104.7 12.8 115.3 12.8 120 15 C124.7 17.2 127.3 23.5 128 28 C128.7 32.5 127 38.8 124 42 C121 45.2 114.7 47 110 47 C105.3 47 99 45.2 96 42 C93 38.8 91.3 32.5 92 28Z" class="organ" data-t="brain nervous"/>
+<path d="M100 26 C101.3 25.3 105.7 21.3 108 22 C110.3 22.7 111.7 29.7 114 30 C116.3 30.3 120.7 25 122 24" class="line"/>
+<path d="M110 62 L110 234" class="line" data-t="spinal nervous"/>
+<path d="M110 100 C104.3 101.3 85.3 99.7 76 108 C66.7 116.3 59.3 133.7 54 150 C48.7 166.3 45.7 196.7 44 206" class="line" data-t="nerves nervous"/>
+<path d="M110 100 C115.7 101.3 134.7 99.7 144 108 C153.3 116.3 160.7 133.7 166 150 C171.3 166.3 174.3 196.7 176 206" class="line" data-t="nerves nervous"/>
+<path d="M110 232 C108 241.7 100.7 267 98 290 C95.3 313 95 343.7 94 370 C93 396.3 92.3 435 92 448" class="line" data-t="nerves nervous"/>
+<path d="M110 232 C112 241.7 119.3 267 122 290 C124.7 313 125 343.7 126 370 C127 396.3 127.7 435 128 448" class="line" data-t="nerves nervous"/>
+<ellipse cx="103" cy="81" rx="6" ry="4" class="organ" data-t="thyroid endocrine"/>
+<ellipse cx="117" cy="81" rx="6" ry="4" class="organ" data-t="thyroid endocrine"/>
+<path d="M110 64 L110 102 L100 114" class="line" data-t="lung respiratory"/>
+<path d="M110 102 L120 114" class="line" data-t="lung respiratory"/>
+<path d="M100 102 C97.3 98.3 92 102.3 88 106 C84 109.7 78.3 117 76 124 C73.7 131 72.7 142 74 148 C75.3 154 79.7 158.7 84 160 C88.3 161.3 96.7 161.3 100 156 C103.3 150.7 104 137 104 128 C104 119 102.7 105.7 100 102Z" class="organ" data-t="lung respiratory"/>
+<path d="M120 102 C122.7 98.3 128 102.3 132 106 C136 109.7 141.7 117 144 124 C146.3 131 147.3 142 146 148 C144.7 154 140.3 158.7 136 160 C131.7 161.3 123.3 161.3 120 156 C116.7 150.7 116 137 116 128 C116 119 117.3 105.7 120 102Z" class="organ" data-t="lung respiratory"/>
+<path d="M104 126 C105.7 121.7 110.7 118.7 114 118 C117.3 117.3 121.7 119 124 122 C126.3 125 128.7 130.7 128 136 C127.3 141.3 123 150 120 154 C117 158 112.7 161.7 110 160 C107.3 158.3 105 149.7 104 144 C103 138.3 102.3 130.3 104 126Z" class="organ" data-t="heart circulatory"/>
+<path d="M112 158 L112 236" class="line" data-t="vessels circulatory"/>
+<path d="M112 236 C110 240.3 102.7 246.3 100 262 C97.3 277.7 97 300.3 96 330 C95 359.7 94.3 421.7 94 440" class="line" data-t="vessels circulatory"/>
+<path d="M112 236 C114 240.3 121.3 246.3 124 262 C126.7 277.7 127.7 300.3 128 330 C128.3 359.7 126.3 421.7 126 440" class="line" data-t="vessels circulatory"/>
+<path d="M116 124 C111.7 120 99.3 103 90 100 C80.7 97 67 94.3 60 106 C53 117.7 50 159.3 48 170" class="line" data-t="vessels circulatory"/>
+<path d="M104 124 C108.3 120 120.7 103 130 100 C139.3 97 153 94.3 160 106 C167 117.7 170 159.3 172 170" class="line" data-t="vessels circulatory"/>
+<ellipse cx="92" cy="207" rx="6" ry="11" class="organ" data-t="kidney urinary"/>
+<ellipse cx="128" cy="207" rx="6" ry="11" class="organ" data-t="kidney urinary"/>
+<path d="M78 166 C81 163.3 91 161.7 98 162 C105 162.3 115.7 164.7 120 168 C124.3 171.3 126.3 178 124 182 C121.7 186 112 191 106 192 C100 193 92.3 190.3 88 188 C83.7 185.7 81.7 181.7 80 178 C78.3 174.3 75 168.7 78 166Z" class="organ" data-t="liver digestive"/>
+<path d="M124 166 C127 162.3 136 162 140 164 C144 166 147.3 172.7 148 178 C148.7 183.3 147 192.3 144 196 C141 199.7 133.7 201.7 130 200 C126.3 198.3 123 191.7 122 186 C121 180.3 121 169.7 124 166Z" class="organ" data-t="stomach digestive"/>
+<ellipse cx="153" cy="178" rx="6" ry="11" class="organ" data-t="spleen"/>
+<path d="M100 199 C103.3 196.7 113.3 195 120 195 C126.7 195 136.7 197 140 199 C143.3 201 143.7 206 140 207 C136.3 208 124.7 204.7 118 205 C111.3 205.3 103 210 100 209 C97 208 96.7 201.3 100 199Z" class="organ" data-t="pancreas digestive endocrine"/>
+<path d="M88 216 C96 212.7 124 212.7 132 216 C140 219.3 137.3 230.7 136 236 C134.7 241.3 130.7 246 124 248 C117.3 250 102.7 250 96 248 C89.3 246 85.3 241.3 84 236 C82.7 230.7 80 219.3 88 216Z" class="organ" data-t="intestine digestive"/>
+<path d="M94 224 C95.3 225.3 99.3 232 102 232 C104.7 232 107.3 224 110 224 C112.7 224 115.3 232 118 232 C120.7 232 124.7 225.3 126 224" class="line"/>
+<path d="M82 210 L82 252 L138 252 L138 210" class="line" data-t="colon digestive"/>
+<path d="M103 240 C105.7 238 114.3 238 117 240 C119.7 242 120.2 248.7 119 252 C117.8 255.3 113 260 110 260 C107 260 102.2 255.3 101 252 C99.8 248.7 100.3 242 103 240Z" class="organ" data-t="uterus reproductive"/>
+<ellipse cx="95" cy="244" rx="4" ry="3" class="organ" data-t="uterus reproductive"/>
+<ellipse cx="125" cy="244" rx="4" ry="3" class="organ" data-t="uterus reproductive"/>
+<ellipse cx="110" cy="270" rx="10" ry="7" class="organ" data-t="bladder urinary"/>
+</g>
+<g class="view" data-view="skeleton">
+<ellipse cx="110" cy="36" rx="25" ry="31" class="ghost"/>
+<path d="M100 62 C103.7 57.7 116.3 57.7 120 62 C123.7 66.3 125.7 83.7 122 88 C118.3 92.3 101.7 92.3 98 88 C94.3 83.7 96.3 66.3 100 62Z" class="ghost"/>
+<ellipse cx="60" cy="98" rx="17" ry="13" class="ghost"/>
+<ellipse cx="160" cy="98" rx="17" ry="13" class="ghost"/>
+<path d="M70 92 C76.3 84.7 96.7 86 110 86 C123.3 86 143.7 84.7 150 92 C156.3 99.3 148.7 118.3 148 130 C147.3 141.7 152.3 156 146 162 C139.7 168 122 166 110 166 C98 166 80.3 168 74 162 C67.7 156 72.7 141.7 72 130 C71.3 118.3 63.7 99.3 70 92Z" class="ghost"/>
+<path d="M76 164 C81.3 159.3 98.7 168 110 168 C121.3 168 138.7 159.3 144 164 C149.3 168.7 142.7 186.3 142 196 C141.3 205.7 145.3 216.7 140 222 C134.7 227.3 120 228 110 228 C100 228 85.3 227.3 80 222 C74.7 216.7 78.7 205.7 78 196 C77.3 186.3 70.7 168.7 76 164Z" class="ghost"/>
+<path d="M80 224 C86.7 220.3 100 230 110 230 C120 230 133.3 220.3 140 224 C146.7 227.7 150 243 150 252 C150 261 146.7 275 140 278 C133.3 281 120 270 110 270 C100 270 86.7 281 80 278 C73.3 275 70 261 70 252 C70 243 73.3 227.7 80 224Z" class="ghost"/>
+<path d="M44 106 C49 95 65 96.3 68 108 C71 119.7 67 165 62 176 C57 187 41 185.7 38 174 C35 162.3 39 117 44 106Z" class="ghost"/>
+<path d="M176 106 C171 95 155 96.3 152 108 C149 119.7 153 165 158 176 C163 187 179 185.7 182 174 C185 162.3 181 117 176 106Z" class="ghost"/>
+<path d="M38 178 C43 168.7 59.3 169.7 62 180 C64.7 190.3 59 230.7 54 240 C49 249.3 34.7 246.3 32 236 C29.3 225.7 33 187.3 38 178Z" class="ghost"/>
+<path d="M182 178 C177 168.7 160.7 169.7 158 180 C155.3 190.3 161 230.7 166 240 C171 249.3 185.3 246.3 188 236 C190.7 225.7 187 187.3 182 178Z" class="ghost"/>
+<path d="M32 238 C35.7 235 49 236.3 52 242 C55 247.7 52.7 266.3 50 272 C47.3 277.7 39.3 278 36 276 C32.7 274 30.7 266.3 30 260 C29.3 253.7 28.3 241 32 238Z" class="ghost"/>
+<path d="M188 238 C184.3 235 171 236.3 168 242 C165 247.7 167.3 266.3 170 272 C172.7 277.7 180.7 278 184 276 C187.3 274 189.3 266.3 190 260 C190.7 253.7 191.7 241 188 238Z" class="ghost"/>
+<path d="M78 272 C82.7 258 103.7 259.3 108 274 C112.3 288.7 108.7 346 104 360 C99.3 374 84.3 372.7 80 358 C75.7 343.3 73.3 286 78 272Z" class="ghost"/>
+<path d="M142 272 C137.3 258 116.3 259.3 112 274 C107.7 288.7 111.3 346 116 360 C120.7 374 135.7 372.7 140 358 C144.3 343.3 146.7 286 142 272Z" class="ghost"/>
+<ellipse cx="92" cy="368" rx="13" ry="10" class="ghost"/>
+<ellipse cx="128" cy="368" rx="13" ry="10" class="ghost"/>
+<path d="M80 378 C83.3 365.7 100.7 365.7 104 378 C107.3 390.3 103.3 439.7 100 452 C96.7 464.3 87.3 464.3 84 452 C80.7 439.7 76.7 390.3 80 378Z" class="ghost"/>
+<path d="M140 378 C136.7 365.7 119.3 365.7 116 378 C112.7 390.3 116.7 439.7 120 452 C123.3 464.3 132.7 464.3 136 452 C139.3 439.7 143.3 390.3 140 378Z" class="ghost"/>
+<path d="M80 454 C85 450.7 97.7 451 102 454 C106.3 457 111 468.7 106 472 C101 475.3 76.3 477 72 474 C67.7 471 75 457.3 80 454Z" class="ghost"/>
+<path d="M140 454 C135 450.7 122.3 451 118 454 C113.7 457 109 468.7 114 472 C119 475.3 143.7 477 148 474 C152.3 471 145 457.3 140 454Z" class="ghost"/>
+<ellipse cx="110" cy="34" rx="20" ry="24" class="bone" data-t="skull skeleton"/>
+<path d="M98 52 C99.3 52.7 106 62 110 62 C114 62 120.7 52.7 122 52 C123.3 51.3 120 55.7 118 58 C116 60.3 112.7 66 110 66 C107.3 66 104 60.3 102 58 C100 55.7 96.7 51.3 98 52Z" class="bone" data-t="skull skeleton"/>
+<rect x="106.5" y="68" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="74.9" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="81.8" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="88.7" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="95.6" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="102.5" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="109.4" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="116.3" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="123.2" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="130.1" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="137" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="143.9" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="150.8" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="157.7" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="164.6" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="171.5" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="178.4" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="185.3" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="192.2" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="199.1" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="206" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="212.9" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="219.8" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<rect x="106.5" y="226.7" width="7" height="5" rx="1.5" class="bone" data-t="spine skeleton"/>
+<path d="M108 98 C105.3 98.3 96.7 98 92 100 C87.3 102 82.3 106.3 80 110 C77.7 113.7 78.3 120 78 122" class="line" data-t="ribs skeleton"/>
+<path d="M112 98 C114.7 98.3 123.3 98 128 100 C132.7 102 137.7 106.3 140 110 C142.3 113.7 141.7 120 142 122" class="line" data-t="ribs skeleton"/>
+<path d="M108 107 C105.3 107.3 96.7 107 92 109 C87.3 111 82.3 115.3 80 119 C77.7 122.7 78.3 129 78 131" class="line" data-t="ribs skeleton"/>
+<path d="M112 107 C114.7 107.3 123.3 107 128 109 C132.7 111 137.7 115.3 140 119 C142.3 122.7 141.7 129 142 131" class="line" data-t="ribs skeleton"/>
+<path d="M108 116 C105.3 116.3 96.7 116 92 118 C87.3 120 82.3 124.3 80 128 C77.7 131.7 78.3 138 78 140" class="line" data-t="ribs skeleton"/>
+<path d="M112 116 C114.7 116.3 123.3 116 128 118 C132.7 120 137.7 124.3 140 128 C142.3 131.7 141.7 138 142 140" class="line" data-t="ribs skeleton"/>
+<path d="M108 125 C105.3 125.3 96.7 125 92 127 C87.3 129 82.3 133.3 80 137 C77.7 140.7 78.3 147 78 149" class="line" data-t="ribs skeleton"/>
+<path d="M112 125 C114.7 125.3 123.3 125 128 127 C132.7 129 137.7 133.3 140 137 C142.3 140.7 141.7 147 142 149" class="line" data-t="ribs skeleton"/>
+<path d="M108 134 C105.3 134.3 96.7 134 92 136 C87.3 138 82.3 142.3 80 146 C77.7 149.7 78.3 156 78 158" class="line" data-t="ribs skeleton"/>
+<path d="M112 134 C114.7 134.3 123.3 134 128 136 C132.7 138 137.7 142.3 140 146 C142.3 149.7 141.7 156 142 158" class="line" data-t="ribs skeleton"/>
+<path d="M108 143 C105.3 143.3 96.7 143 92 145 C87.3 147 82.3 151.3 80 155 C77.7 158.7 78.3 165 78 167" class="line" data-t="ribs skeleton"/>
+<path d="M112 143 C114.7 143.3 123.3 143 128 145 C132.7 147 137.7 151.3 140 155 C142.3 158.7 141.7 165 142 167" class="line" data-t="ribs skeleton"/>
+<rect x="107" y="98" width="6" height="44" rx="3" class="bone" data-t="ribs skeleton"/>
+<path d="M108 92 C105 91.7 96.3 89.3 90 90 C83.7 90.7 73.3 95 70 96" class="line" data-t="shoulderbone skeleton"/>
+<path d="M112 92 C115 91.7 123.7 89.3 130 90 C136.3 90.7 146.7 95 150 96" class="line" data-t="shoulderbone skeleton"/>
+<path d="M82 228 C88.7 226 100.7 234 110 234 C119.3 234 131.3 226 138 228 C144.7 230 150 239.3 150 246 C150 252.7 144.7 265.3 138 268 C131.3 270.7 119.3 262 110 262 C100.7 262 88.7 270.7 82 268 C75.3 265.3 70 252.7 70 246 C70 239.3 75.3 230 82 228Z" class="bone" data-t="pelvisbone skeleton"/>
+<path d="M50 102 C53 90.7 62.7 92 64 104 C65.3 116 61 162.7 58 174 C55 185.3 47.3 184 46 172 C44.7 160 47 113.3 50 102Z" class="bone" data-t="humerus skeleton"/>
+<path d="M170 102 C167 90.7 157.3 92 156 104 C154.7 116 159 162.7 162 174 C165 185.3 172.7 184 174 172 C175.3 160 173 113.3 170 102Z" class="bone" data-t="humerus skeleton"/>
+<path d="M44 178 C46.3 168.7 51.7 170 52 180 C52.3 190 48.3 228.7 46 238 C43.7 247.3 38.3 246 38 236 C37.7 226 41.7 187.3 44 178Z" class="bone" data-t="forearmbone skeleton"/>
+<path d="M176 178 C173.7 168.7 168.3 170 168 180 C167.7 190 171.7 228.7 174 238 C176.3 247.3 181.7 246 182 236 C182.3 226 178.3 187.3 176 178Z" class="bone" data-t="forearmbone skeleton"/>
+<path d="M53 180 C55 170.7 60 172.3 60 182 C60 191.7 55 228.7 53 238 C51 247.3 48 247.7 48 238 C48 228.3 51 189.3 53 180Z" class="bone" data-t="forearmbone skeleton"/>
+<path d="M167 180 C165 170.7 160 172.3 160 182 C160 191.7 165 228.7 167 238 C169 247.3 172 247.7 172 238 C172 228.3 169 189.3 167 180Z" class="bone" data-t="forearmbone skeleton"/>
+<path d="M34 242 C36.7 236.7 49.3 239 52 244 C54.7 249 52.7 266.7 50 272 C47.3 277.3 38.7 281 36 276 C33.3 271 31.3 247.3 34 242Z" class="bone" data-t="handbone skeleton"/>
+<path d="M186 242 C183.3 236.7 170.7 239 168 244 C165.3 249 167.3 266.7 170 272 C172.7 277.3 181.3 281 184 276 C186.7 271 188.7 247.3 186 242Z" class="bone" data-t="handbone skeleton"/>
+<path d="M86 272 C88.7 257.7 103.5 259.3 106 274 C108.5 288.7 103.7 345.7 101 360 C98.3 374.3 92.5 374.7 90 360 C87.5 345.3 83.3 286.3 86 272Z" class="bone" data-t="femur skeleton"/>
+<path d="M134 272 C131.3 257.7 116.5 259.3 114 274 C111.5 288.7 116.3 345.7 119 360 C121.7 374.3 127.5 374.7 130 360 C132.5 345.3 136.7 286.3 134 272Z" class="bone" data-t="femur skeleton"/>
+<ellipse cx="95" cy="367" rx="6" ry="7" class="bone" data-t="kneebone skeleton"/>
+<ellipse cx="125" cy="367" rx="6" ry="7" class="bone" data-t="kneebone skeleton"/>
+<path d="M88 376 C89.7 363.3 98.7 363.3 100 376 C101.3 388.7 97.7 439.3 96 452 C94.3 464.7 91.3 464.7 90 452 C88.7 439.3 86.3 388.7 88 376Z" class="bone" data-t="tibia skeleton"/>
+<path d="M132 376 C130.3 363.3 121.3 363.3 120 376 C118.7 388.7 122.3 439.3 124 452 C125.7 464.7 128.7 464.7 130 452 C131.3 439.3 133.7 388.7 132 376Z" class="bone" data-t="tibia skeleton"/>
+<path d="M82 454 C86.7 451 98 451.3 102 454 C106 456.7 110.7 467 106 470 C101.3 473 78 474.7 74 472 C70 469.3 77.3 457 82 454Z" class="bone" data-t="footbone skeleton"/>
+<path d="M138 454 C133.3 451 122 451.3 118 454 C114 456.7 109.3 467 114 470 C118.7 473 142 474.7 146 472 C150 469.3 142.7 457 138 454Z" class="bone" data-t="footbone skeleton"/>
+</g>
+</svg>

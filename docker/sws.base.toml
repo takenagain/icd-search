@@ -1,0 +1,69 @@
+# static-web-server configuration for the Icdex image (static part).
+# Serves the prebuilt site from /public; nothing is written to disk, so the root filesystem can be read-only.
+# `npm run build:config` (web/scripts/sws-config.mjs) appends one immutable-cache rule for every hashed file
+# of the build and writes docker/sws.toml, which the Dockerfile copies. Rules are per exact file on purpose:
+# this server version cannot restrict a header rule to 2xx responses, and a wildcard like /assets/** would
+# also mark a 404 for a not-yet-deployed hashed file as cacheable for a year.
+# docs/DEPLOY.md explains each choice. web/scripts/serve.mjs mirrors these headers for local tests.
+
+[general]
+host = "::"
+port = 8080
+root = "/public"
+log-level = "info"
+
+# Liveness/readiness: GET or HEAD /health -> 200
+health = true
+
+# Serve the .br / .gz files built next to every text asset (web/scripts/precompress.mjs).
+# On-the-fly compression stays on as a fallback for anything not precompressed.
+compression-static = true
+compression = true
+
+# No page-fallback: it also answers missing assets with index.html and status 200. Routing is explicit instead
+# (see the rewrites at the end): only the app's own routes get index.html with status 200. Any other missing path
+# is a real 404, whose body is index.html so that a mistyped URL shows the app's own "Page not found" screen.
+page404 = "/public/index.html"
+
+# All cache headers are set explicitly below.
+cache-control-headers = false
+security-headers = false
+directory-listing = false
+index-files = "index.html"
+
+# ---- Headers --------------------------------------------------------------
+# Later rules win over earlier ones, so the broad rule comes first.
+
+[[advanced.headers]]
+source = "/**"
+[advanced.headers.headers]
+Cache-Control = "no-cache"
+Content-Security-Policy = "default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; object-src 'none'"
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "no-referrer"
+Cross-Origin-Opener-Policy = "same-origin"
+Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# The manifest is how clients notice a new release: keep it short-lived.
+[[advanced.headers]]
+source = "/data/manifest.json"
+headers = { Cache-Control = "public, max-age=60, must-revalidate" }
+
+# ---- History-API routing -------------------------------------------------------
+# The app uses clean URLs. These are its routes (web/src/router.ts); each is answered with index.html and
+# status 200, and the client router takes over. Codes contain dots (/code/8B88.0), so match by prefix, not extension.
+[[advanced.rewrites]]
+source = "/search"
+destination = "/index.html"
+
+[[advanced.rewrites]]
+source = "/about"
+destination = "/index.html"
+
+[[advanced.rewrites]]
+source = "/code/**"
+destination = "/index.html"
+
+[[advanced.rewrites]]
+source = "/graph/**"
+destination = "/index.html"

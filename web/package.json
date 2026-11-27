@@ -1,0 +1,23 @@
+{
+  "name": "icd-search-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc --noEmit",
+    "build:wasm": "node scripts/build-wasm.mjs",
+    "build:data": "node scripts/build-data.mjs",
+    "build:site": "vite build",
+    "build:compress": "node scripts/precompress.mjs",
+    "build": "npm run build:wasm && npm run build:data && npm run typecheck && npm run build:site && npm run build:compress && npm run build:config",
+    "serve": "node scripts/serve.mjs",
+    "test:e2e": "playwright test",
+    "build:config": "node scripts/sws-config.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.4.0"
+  }
+}

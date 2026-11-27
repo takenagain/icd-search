@@ -1,0 +1,12 @@
+node_modules/
+target/
+dist/
+.cache/
+*.log
+/web/public/data/
+/web/public/wasm/
+/web/src/wasm/
+test-results/
+playwright-report/
+.DS_Store
+/docker/sws.toml

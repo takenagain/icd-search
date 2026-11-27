@@ -1,0 +1,154 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+  IMAGE: ghcr.io/${{ github.repository }}
+
+jobs:
+  rust:
+    name: Rust tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: Unit and ranking tests (real dataset)
+        run: cargo test --locked -p icd-search
+
+  site:
+    name: Build site and e2e
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+      - uses: Swatinem/rust-cache@v2
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      # wasm-bindgen-cli must match the crate version in Cargo.lock (scripts/build-wasm.mjs checks it).
+      - name: wasm-bindgen version
+        id: wb
+        run: echo "version=$(awk '$0=="name = \"wasm-bindgen\""{getline; gsub(/[^0-9.]/,"",$3); print $3}' Cargo.lock)" >> "$GITHUB_OUTPUT"
+      - name: Cache wasm-bindgen-cli
+        id: wb-cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.cargo/bin/wasm-bindgen
+          key: wasm-bindgen-${{ runner.os }}-${{ steps.wb.outputs.version }}
+      - name: Install wasm-bindgen-cli
+        if: steps.wb-cache.outputs.cache-hit != 'true'
+        run: cargo install wasm-bindgen-cli --version "${{ steps.wb.outputs.version }}" --locked
+
+      - name: Build (WASM, dataset + manifest, site, precompression, server config)
+        working-directory: web
+        run: npm ci && npm run build
+      - name: First-visit download size
+        run: |
+          {
+            echo "### First-visit download"
+            echo
+            echo '```'
+            node -e "
+              const fs=require('fs'),m=JSON.parse(fs.readFileSync('dist/data/manifest.json'));
+              const app=['index.html',...fs.readdirSync('dist/assets').filter(f=>/\.(js|css|wasm)\$/.test(f)).map(f=>'assets/'+f)];
+              const br=app.reduce((n,f)=>n+fs.statSync('dist/'+f+'.br').size,0), gz=app.reduce((n,f)=>n+fs.statSync('dist/'+f+'.gz').size,0);
+              const mb=n=>(n/1e6).toFixed(2)+' MB';
+              console.log('dataset  raw '+mb(m.totals.bytes)+'  br '+mb(m.totals.br)+'  gz '+mb(m.totals.gz));
+              console.log('app      br '+mb(br)+'  gz '+mb(gz));
+              console.log('total    br '+mb(m.totals.br+br)+'  gz '+mb(m.totals.gz+gz));
+            "
+            echo '```'
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Install Playwright browser
+        working-directory: web
+        run: npx playwright install --with-deps chromium
+      - name: e2e (desktop + mobile) against ./dist
+        working-directory: web
+        run: npx playwright test --project=desktop --project=mobile
+      - uses: actions/upload-artifact@v7
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: |
+            web/playwright-report
+            web/test-results
+          if-no-files-found: ignore
+          retention-days: 7
+      - uses: actions/upload-artifact@v7
+        with:
+          name: site
+          path: |
+            dist
+            docker/sws.toml
+          retention-days: 7
+
+  image:
+    name: Image (test, then push on main)
+    needs: [rust, site]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/download-artifact@v8
+        with:
+          name: site
+      - name: Build image
+        run: docker build -f docker/Dockerfile -t icd-search:ci --label org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }} --label org.opencontainers.image.revision=${{ github.sha }} .
+      - name: Run it hardened (read-only rootfs, non-root, no capabilities)
+        run: |
+          docker run -d --name icd -p 8080:8080 --read-only --cap-drop ALL --security-opt no-new-privileges --memory 64m icd-search:ci
+          for i in $(seq 1 30); do curl -fsS http://127.0.0.1:8080/health && break; sleep 1; done
+          curl -fsS http://127.0.0.1:8080/health
+          test "$(docker inspect -f '{{.Config.User}}' icd)" = "10001:10001"
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: e2e (desktop + mobile) against the container
+        working-directory: web
+        env:
+          E2E_BASE_URL: http://127.0.0.1:8080
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+          npx playwright test --project=desktop --project=mobile
+      - name: Container logs
+        if: ${{ failure() }}
+        run: docker logs icd
+      - name: Push to GHCR (main only)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+          image="${IMAGE,,}"
+          docker tag icd-search:ci "$image:sha-${GITHUB_SHA::12}"
+          docker tag icd-search:ci "$image:latest"
+          docker push "$image:sha-${GITHUB_SHA::12}"
+          docker push "$image:latest"
+          digest="$(docker inspect --format '{{index .RepoDigests 0}}' "$image:sha-${GITHUB_SHA::12}")"
+          {
+            echo "### Image pushed"
+            echo
+            echo "\`$digest\`"
+            echo
+            echo "Tags: \`sha-${GITHUB_SHA::12}\`, \`latest\` (package stays private unless changed in GitHub)"
+          } | tee -a "$GITHUB_STEP_SUMMARY"

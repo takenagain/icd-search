@@ -6,7 +6,7 @@ use std::collections::{HashMap, HashSet};
 use serde::Serialize;
 use serde_json::{Value, json};
 
-use crate::data::{Entity, KIND_CATEGORY, kind_name, link_label, link_target};
+use crate::data::{Entity, KIND_CATEGORY, KIND_CHAPTER, kind_name, link_label, link_target};
 use crate::index::{self, DocMeta, Index, K1, NONE};
 use crate::text::{code_norm, is_stop, osa_within, stem, tokenize};
 
@@ -14,6 +14,7 @@ const RERANK_K: usize = 150;
 const MAX_PREFIX_TERMS: usize = 80;
 const MAX_FUZZY_TERMS: usize = 40;
 const MAX_LIST: usize = 300;
+const BROWSE_MATCH_LIMIT: usize = 50;
 
 #[derive(Default)]
 pub struct Engine {
@@ -24,6 +25,8 @@ pub struct Engine {
     /// (normalised code, doc), sorted.
     codes: Vec<(String, u32)>,
     categories: Vec<u32>,
+    /// Direct children in classification order, rebuilt from the existing index on load.
+    children: Vec<Vec<u32>>,
 }
 
 #[derive(Debug, Clone, Serialize)]
@@ -35,6 +38,22 @@ pub struct Brief {
     pub kind: &'static str,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub def: Option<String>,
+}
+
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct BrowseEntry {
+    #[serde(flatten)]
+    pub brief: Brief,
+    pub has_children: bool,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub chapter: Option<String>,
+}
+
+#[derive(Serialize)]
+pub struct BrowseMatches {
+    pub items: Vec<BrowseEntry>,
+    pub total: usize,
 }
 
 #[derive(Debug, Clone, Serialize)]
@@ -173,6 +192,12 @@ impl Engine {
             .filter(|(_, d)| d.kind == KIND_CATEGORY)
             .map(|(i, _)| i as u32)
             .collect();
+        self.children = vec![Vec::new(); idx.docs.len()];
+        for (i, doc) in idx.docs.iter().enumerate() {
+            if let Some(children) = self.children.get_mut(doc.pa as usize) {
+                children.push(i as u32);
+            }
+        }
         self.index = Some(idx);
     }
 
@@ -569,6 +594,56 @@ impl Engine {
 
     pub fn brief_by_key(&self, key: &str) -> Option<Brief> {
         self.doc_by_key(key).map(|d| self.brief(d, true))
+    }
+
+    fn browse_entry(&self, doc: u32) -> BrowseEntry {
+        let chapter = self.meta(doc).chap;
+        BrowseEntry {
+            brief: self.brief(doc, false),
+            has_children: !self.children[doc as usize].is_empty(),
+            chapter: self.idx().docs.get(chapter as usize).filter(|_| chapter != doc).map(|d| d.title.clone()),
+        }
+    }
+
+    /// With no parent, browse the top-level chapters.
+    pub fn browse_children(&self, parent: Option<&str>) -> Vec<BrowseEntry> {
+        if let Some(key) = parent {
+            let Some(doc) = self.doc_by_key(key) else { return Vec::new() };
+            return self.children[doc as usize].iter().map(|&d| self.browse_entry(d)).collect();
+        }
+        self.idx()
+            .docs
+            .iter()
+            .enumerate()
+            .filter(|(_, d)| d.kind == KIND_CHAPTER && d.pa == NONE)
+            .map(|(i, _)| self.browse_entry(i as u32))
+            .collect()
+    }
+
+    /// Literal title or code filtering in classification order, without changing ranked search.
+    pub fn filter_browse(&self, query: &str, folders_only: bool) -> BrowseMatches {
+        let terms: Vec<_> = query.split_whitespace().map(str::to_lowercase).collect();
+        let mut matches = BrowseMatches { items: Vec::new(), total: 0 };
+        if terms.is_empty() {
+            return matches;
+        }
+        let code_query = Self::code_like(query);
+        for (i, doc) in self.idx().docs.iter().enumerate() {
+            if folders_only && self.children[i].is_empty() {
+                continue;
+            }
+            let title = doc.title.to_lowercase();
+            let code = doc.code.to_lowercase();
+            if terms.iter().all(|term| title.contains(term) || code.contains(term))
+                || code_query.as_ref().is_some_and(|q| code_norm(&doc.code).contains(q))
+            {
+                matches.total += 1;
+                if matches.items.len() < BROWSE_MATCH_LIMIT {
+                    matches.items.push(self.browse_entry(i as u32));
+                }
+            }
+        }
+        matches
     }
 
     fn briefs_of_ids<'a>(&self, ids: impl Iterator<Item = &'a String>, cap: usize) -> (Vec<Brief>, usize) {

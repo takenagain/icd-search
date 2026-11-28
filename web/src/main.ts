@@ -10,6 +10,7 @@ import { graphView } from './views/graph';
 import { aboutView } from './views/about';
 import { setupView } from './views/setup';
 import { footer, topBar, page, wordmark } from './ui/shell';
+import { browseSidebar } from './ui/browse';
 import type { StepEvent } from './types';
 
 const app = document.getElementById('app')!;
@@ -18,6 +19,8 @@ let cleanup: (() => void) | null = null;
 let seq = 0;
 let ready = false;
 let update: { available: boolean } | null = null;
+let browse: ReturnType<typeof browseSidebar> | null = null;
+let browseScrollTop = 0;
 
 function mount(el: HTMLElement, title: string, focusHeading = true, onCleanup?: () => void) {
   cleanup?.();
@@ -58,7 +61,17 @@ async function render() {
         };
     }
     if (mine !== seq) return out.cleanup?.();
+    if (browse?.el.isConnected) browseScrollTop = browse.scroll.scrollTop;
+    if (route.name === 'home' || route.name === 'search' || route.name === 'code') {
+      browse ??= browseSidebar();
+      browse.select(route.name === 'code' ? route.key : undefined);
+      const main = out.el.querySelector('main')!;
+      const layout = h('div', { class: 'browse-layout' });
+      main.replaceWith(layout);
+      layout.append(browse.el, main);
+    }
     mount(out.el, out.title, route.name !== 'home', out.cleanup);
+    if (browse?.el.isConnected) browse.scroll.scrollTop = browseScrollTop;
   } catch (e) {
     if (mine !== seq) return;
     mount(page('code-page', topBar(), h('main', { id: 'main', class: 'code-main' }, h('h1', { tabindex: '-1' }, 'Something went wrong'), h('p', { role: 'alert' }, e instanceof Error ? e.message : String(e))), footer(state.manifest)), 'Error - Icdex');
@@ -75,6 +88,8 @@ function showBanner() {
 
 function runSetup(title: string, intro: string, onDone: () => void) {
   ready = false;
+  browse = null;
+  browseScrollTop = 0;
   const t0 = performance.now();
   mount(
     setupView({

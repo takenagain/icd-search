@@ -304,6 +304,8 @@ const methods: Record<string, (...a: any[]) => unknown> = {
   suggest: (q: string, limit: number) => JSON.parse(need().suggest(q, limit)),
   detail: (key: string) => parse(need().detail(key)),
   brief: (key: string) => parse(need().brief(key)),
+  browseChildren: (parent?: string) => JSON.parse(need().browse_children(parent)),
+  filterBrowse: (query: string, foldersOnly: boolean) => JSON.parse(need().filter_browse(query, foldersOnly)),
   neighbors: (key: string, max: number) => parse(need().neighbors(key, max)),
   randomKey: (r: number) => need().random_key(r) ?? null,
   stats: () => JSON.parse(need().stats()),

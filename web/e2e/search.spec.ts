@@ -30,6 +30,14 @@ test('typing shows suggestions and typos still find the code', async ({ page }) 
   await expect(page.locator('.result h3').first()).toContainText('iabetes');
 });
 
+test('the Search button can submit while suggestions are open', async ({ page }) => {
+  await openReady(page);
+  await searchBox(page).fill('asthma');
+  await expect(page.getByRole('listbox', { name: 'Suggestions' })).toBeVisible();
+  await page.getByRole('button', { name: 'Search', exact: true }).click({ timeout: 3500 });
+  await expect(page.getByRole('heading', { name: 'Results for asthma' })).toBeVisible();
+});
+
 test('results are paginated 10 per page with playful pagination', async ({ page }) => {
   await openReady(page);
   await search(page, 'diabetes');

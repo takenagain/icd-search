@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 
-// The built site is plain static files; nothing is inlined so a strict CSP works.
+// The built site keeps scripts and styles external to the HTML for a strict CSP.
 export default defineConfig({
   root: '.',
   base: '/',

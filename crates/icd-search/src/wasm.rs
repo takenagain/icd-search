@@ -57,6 +57,14 @@ impl IcdEngine {
         self.inner.brief_by_key(key).map(|b| json(&b))
     }
 
+    pub fn browse_children(&self, parent: Option<String>) -> String {
+        json(&self.inner.browse_children(parent.as_deref()))
+    }
+
+    pub fn filter_browse(&self, query: &str, folders_only: bool) -> String {
+        json(&self.inner.filter_browse(query, folders_only))
+    }
+
     pub fn neighbors(&self, key: &str, max_children: u32) -> Option<String> {
         self.inner.neighbors(key, max_children as usize).map(|v| json(&v))
     }

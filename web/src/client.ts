@@ -1,5 +1,5 @@
 // Promise RPC to the engine worker.
-import type { Brief, Detail, Neighbors, SearchResponse, Status, StepEvent, StorageInfo, Suggestion, Manifest } from './types';
+import type { Brief, BrowseEntry, BrowseMatches, Detail, Neighbors, SearchResponse, Status, StepEvent, StorageInfo, Suggestion, Manifest } from './types';
 
 type Pending = { res: (v: any) => void; rej: (e: Error) => void };
 
@@ -51,6 +51,8 @@ class Client {
   search = (q: string, page: number, per = 10) => this.call<SearchResponse>('search', q, page, per);
   suggest = (q: string, limit = 8) => this.call<Suggestion[]>('suggest', q, limit);
   detail = (key: string) => this.call<Detail | null>('detail', key);
+  browseChildren = (parent?: string) => this.call<BrowseEntry[]>('browseChildren', parent);
+  filterBrowse = (query: string, foldersOnly: boolean) => this.call<BrowseMatches>('filterBrowse', query, foldersOnly);
   neighbors = (key: string, max = 24) => this.call<Neighbors | null>('neighbors', key, max);
   randomKey = () => this.call<string | null>('randomKey', Math.random());
   stats = () => this.call<{ docs: number; terms: number; postings: number }>('stats');

@@ -27,6 +27,16 @@ export interface Brief {
   def?: string;
 }
 
+export interface BrowseEntry extends Brief {
+  hasChildren: boolean;
+  chapter?: string;
+}
+
+export interface BrowseMatches {
+  items: BrowseEntry[];
+  total: number;
+}
+
 export interface Crumb {
   key: string;
   code: string;

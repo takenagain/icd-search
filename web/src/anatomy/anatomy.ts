@@ -2,7 +2,7 @@
 // words in titles / index terms) and draws the matching schematic diagram with that region highlighted.
 // Diagram source and licence: see ANATOMY_CREDITS (also shown on the About page and under every figure).
 import { h } from '../ui/h';
-import bodyUrl from './body.svg?url';
+import bodySvg from './body.svg?raw';
 import type { Detail } from '../types';
 
 type View = 'surface' | 'back' | 'organs' | 'skeleton';
@@ -133,15 +133,19 @@ export const ANATOMY_CREDITS = [
   },
 ];
 
-let svgText: Promise<string> | null = null;
-const loadSvg = () => (svgText ??= fetch(bodyUrl).then((r) => (r.ok ? r.text() : Promise.reject(new Error('diagram unavailable')))));
+// Bundle the artwork with the app so a code can open offline on its first visit.
+let bodyTemplate: Element | undefined;
 
 export function anatomyFigure(m: AnatomyMatch): HTMLElement {
-  const holder = h('div', { class: 'anat-svg' });
-  const fig = h(
+  bodyTemplate ??= new DOMParser().parseFromString(bodySvg, 'image/svg+xml').documentElement;
+  const svg = document.importNode(bodyTemplate, true);
+  svg.setAttribute('aria-label', `Diagram of the human body with the ${m.label.toLowerCase()} highlighted`);
+  svg.querySelectorAll('g.view').forEach((g) => g.classList.toggle('shown', g.getAttribute('data-view') === m.view));
+  svg.querySelectorAll(`[data-t~="${m.region}"]`).forEach((n) => n.classList.add('on'));
+  return h(
     'figure',
     { class: 'anat', 'data-region': m.region, 'data-view': m.view },
-    holder,
+    h('div', { class: 'anat-svg' }, svg),
     h(
       'figcaption',
       null,
@@ -151,15 +155,4 @@ export function anatomyFigure(m: AnatomyMatch): HTMLElement {
       h('span', { class: 'credit' }, 'Artwork: Icdex, ', h('a', { href: ANATOMY_CREDITS[0].page, target: '_blank', rel: 'noopener' }, 'CC0 1.0'), '.'),
     ),
   );
-  loadSvg()
-    .then((text) => {
-      const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
-      const svg = document.importNode(doc.documentElement, true) as unknown as SVGSVGElement;
-      svg.setAttribute('aria-label', `Diagram of the human body with the ${m.label.toLowerCase()} highlighted`);
-      svg.querySelectorAll('g.view').forEach((g) => g.classList.toggle('shown', g.getAttribute('data-view') === m.view));
-      svg.querySelectorAll(`[data-t~="${m.region}"]`).forEach((n) => n.classList.add('on'));
-      holder.replaceChildren(svg);
-    })
-    .catch(() => holder.replaceChildren(h('p', { class: 'hint' }, 'The diagram could not be loaded.')));
-  return fig;
 }

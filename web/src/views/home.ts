@@ -8,18 +8,17 @@ import { state } from '../state';
 export function homeView(): HTMLElement {
   const box = SearchBox({ big: true, autofocus: true });
   const random = h('button', {
-    class: 'btn',
+    class: 'btn small',
     type: 'button',
     onClick: async () => {
       const k = await client.randomKey();
       if (k) navigate(href.code(k));
     },
   }, 'Random code');
-  box.appendChild(random);
   const m = state.manifest;
   return page(
     'home',
-    h('header', { class: 'home-nav' }, h('nav', { 'aria-label': 'Site' }, h('a', { href: href.about() }, 'About'))),
+    h('header', { class: 'home-nav' }, h('nav', { 'aria-label': 'Site' }, random, h('a', { href: href.about() }, 'About'))),
     h(
       'main',
       { id: 'main', class: 'home-main' },
